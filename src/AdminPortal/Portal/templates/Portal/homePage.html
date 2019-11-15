@@ -1,0 +1,23 @@
+{% extends "Portal/base.html" %}
+
+{% block content %}
+
+<div id="backgroundimg1">
+
+    <div class="jumbotron">
+
+        {% if user.is_authenticated %}
+
+            <h1 class="display-4">WELCOME, {{ first_name }}</h1>
+
+        {% else %}
+
+            <h1 class="display-4">WELCOME</h1>
+        
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}
