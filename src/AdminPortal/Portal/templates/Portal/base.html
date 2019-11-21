@@ -48,12 +48,12 @@
                 {% if user.is_authenticated %}
 
                   <li class="nav-item">
-                      <a class="nav-link" href="{% url 'AdminProfile' %}">Profile</a>
-                  </li> 
-
-                  <li class="nav-item">
                       <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                   </li>
+
+                  {% block admin_links %}
+
+                  {% endblock %}
 
                 {% else %}
               
