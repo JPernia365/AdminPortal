@@ -1,4 +1,5 @@
 {% extends "Portal/base.html" %}
+{% load static %}
 
 {% block content %}
 
@@ -6,17 +7,58 @@
 
     <div class="jumbotron">
 
-        {% if user.is_authenticated %}
+        {% if not user.is_authenticated %}
 
-            <h1 class="display-4">WELCOME, {{ first_name }}</h1>
+        <h1 class="display-4"> WELCOME</h1> 
+        <p class="lead" style="color: white; font-size: 25px !important;">
+            Please use the links above to login your your Administrator Portal or to
+            register</br> now (Admin registration is subject to approval and role
+            assignment by another Admin)
+        </p>       
 
         {% else %}
 
-            <h1 class="display-4">WELCOME</h1>
-        
+            {% if isAdmin %}
+
+            <h1 class="display-4">WELCOME, {{ first_name }}</h1>
+
+                {% if new_users %}
+
+                <h3 class="text-danger">
+                <img src="{% static 'Portal/alert-icon.png' %}" style=
+                "width: 40px !important; height: 40px !important; border-radius: 50% !important;">
+                    Quick heads up! There are new 
+                    registered users who need role assignment</h3>
+                <a class="nav-link" href="{% url 'Home' %}">
+                    <h5 style="color: white;"> Go to Assign Roles page</h5>
+                </a>
+
+                {% endif %}
+            
+            {% endif %}
+
+            {% if not isAdmin %}
+
+            <h1 class="display-4"> WELCOME, new Admin!</h1>
+            <p class="lead" style="color: white; font-size: 25px !important;">
+                Your registration request is currently
+                under review. An Admin role will</br>be assigned
+                to you soon by another administrator.
+            </p>
+
+            {% endif %}
+
         {% endif %}
 
     </div>
+
+    {% if user_is_admin %}
+
+    <div class="jumbotron container">
+        <h4>Whats up!</h4>
+    </div>
+
+    {% endif %}
 
 </div>
 
