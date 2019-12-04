@@ -9,7 +9,6 @@ ROLES = (
     ('ENGINEERING', 'ENGINEERING'),
 )
 
-# Create your models here.
 class Administrator(models.Model):
     user = models.OneToOneField(
         get_user_model(),
