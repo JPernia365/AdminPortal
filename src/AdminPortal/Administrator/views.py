@@ -1,29 +1,25 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth import login, authenticate
 from django.views.generic.base import TemplateView
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 from django.contrib import messages
+from . forms import *
 
 from . models import Administrator
 
-class AdminProfileView(LoginRequiredMixin, TemplateView):
+def register(request):
 
-    template_name = "Portal/profile.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        userInstance = self.request.user
-
-        isAdmin = len(Administrator.objects.filter(user=userInstance)) > 0
-
-        if isAdmin:
-            adminInstance = Administrator.objects.get(user=userInstance)
-            context['isAdmin'] = isAdmin
-            context['first_name'] = adminInstance.first_name
-            context['last_name'] = adminInstance.last_name
-            context['email'] = adminInstance.email
-            context['role'] = adminInstance.role
-
-        return context
-
+    if request.method == 'POST':
+        form = signUpForm(request.POST)
+        if form.is_valid():
+            Administrator = form.save()
+            Administrator.role = form.cleaned_data.get('role')
+            Administrator.save()
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=Administrator.username, password=raw_password)
+            login(request, user)
+            messages.success(
+                request, f'Your Account has been created successfully')
+            return redirect('Home')
+    else:
+        form = signUpForm()
+    return render(request, 'Portal/register.html', {'form': form})

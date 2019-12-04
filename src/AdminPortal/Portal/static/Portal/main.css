@@ -111,12 +111,12 @@ html, body {
     top: 200px !important;
   }
   
-  #registration-container {
+#registration-container {
     position: relative !important;
-    width: 600px;
+    width: 90vw;
     height: 80vh;
     padding: 30px 40px;
-    background-color: rgba(229, 239, 241, 0.8) !important;
+    background-color: rgba(255, 255, 255, 0.918) !important;
     overflow-y: scroll;
   }
   

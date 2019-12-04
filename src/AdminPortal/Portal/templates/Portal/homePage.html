@@ -5,8 +5,16 @@
 
     {% if isAdmin %}
 
+    <li class="nav-item"></li>
+        <a class="nav-link" href="">Assign Roles</a>
+    </li>
+
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'AdminProfile' %}">Manage User Account</a>
+        <a class="nav-link" href="{% url 'redirect-success' %}">Manage User Account</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'redirect-success' %}"> Help Desk</a>
     </li>
 
     {% endif %}

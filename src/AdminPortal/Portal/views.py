@@ -44,18 +44,3 @@ def login(request):
 def redirectView(request):
 
     return render(request, 'Portal/redirect-success.html')
-
-
-def register(request):
-
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            messages.success(
-                request, f'Your Account has been created successfully')
-            return redirect('login')
-    else:
-        form = UserCreationForm()
-    return render(request, 'Portal/register.html', {'form': form})
