@@ -666,6 +666,13 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
   padding: .5rem 1rem;
 }
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
 
 
   
