@@ -1,0 +1,36 @@
+<head>
+    <title>Admin Portal-Assign Roles</title>
+</head>
+    
+{% extends "Portal/base.html" %}
+
+{% block admin_links %}
+
+    {% if isAdmin %}
+
+    <li class="nav-item"></li>
+        <a class="nav-link" href="{% url 'new-admins-list' %}">Assign Roles</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'redirect-success' %}">Manage User Account</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'redirect-success' %}"> Help Desk</a>
+    </li>
+
+    {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+<div id="backgroundimg1">
+
+  <h1 class="display-5">You are now viewing {{ admin.first_name }}'s Admin request</h3>
+
+</div>
+
+{% endblock %}
+    

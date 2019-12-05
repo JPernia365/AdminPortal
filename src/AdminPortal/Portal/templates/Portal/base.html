@@ -80,22 +80,6 @@
 
     <div class="window">
 
-      {% if messages %}
-
-        <div class="row  message-pane container" id="message-panel">
-        
-            {% for message in messages %}
-
-             <div class="alert alert-{{ message.tags }}">
-                    {{ message }}
-             </div>
-
-            {% endfor %}
-
-        </div>
-
-      {% endif %}
-
       {% block content %}
 
       {% endblock %}

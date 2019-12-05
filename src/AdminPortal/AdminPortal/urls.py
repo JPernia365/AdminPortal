@@ -16,4 +16,6 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='Portal/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='Portal/logout.html'), name='logout'),
     path('redirect/', portal_views.redirectView, name='redirect-success'),
+    path('new-admins-list/', admin_views.NewAdminsListView.as_view(), name='new-admins-list'),
+    path('new-admins/<int:pk>', admin_views.adminDetailView, name='admin-detail')
 ]

@@ -6,7 +6,7 @@
     {% if isAdmin %}
 
     <li class="nav-item"></li>
-        <a class="nav-link" href="">Assign Roles</a>
+        <a class="nav-link" href="{% url 'new-admins-list' %}">Assign Roles</a>
     </li>
 
     <li class="nav-item">
@@ -49,7 +49,7 @@
                 "width: 40px !important; height: 40px !important; border-radius: 50% !important;">
                     Quick heads up! There are new 
                     registered users who need role assignment</h3>
-                <a class="nav-link" href="{% url 'Home' %}">
+                <a class="nav-link" href="{% url 'new-admins-list' %}">
                     <h5 style="color: white;"> Go to Assign Roles page</h5>
                 </a>
 
@@ -71,14 +71,6 @@
         {% endif %}
 
     </div>
-
-    {% if user_is_admin %}
-
-    <div class="jumbotron container">
-        <h4>Whats up!</h4>
-    </div>
-
-    {% endif %}
 
 </div>
 

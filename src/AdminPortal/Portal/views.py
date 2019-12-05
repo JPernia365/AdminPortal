@@ -13,17 +13,14 @@ def homePage(request):
     context = {}
     context['request'] = 'request'
 
-    new_users = len(User.objects.filter(administrator=None)) > 0
+    new_users = len(Administrator.objects.filter(is_admin=False)) > 0
 
     if request.user.username:
         userInstance = User.objects.get(username=request.user)
-        print("Current user: " + str(userInstance)) #DEBUG
-        isAdmin = len(Administrator.objects.filter(user=userInstance)) > 0
-        print("Is this user an Admin? " + str(isAdmin)) #DEBUG
+        isAdmin = userInstance.administrator.is_admin
 
         if isAdmin:
             first_name = Administrator.objects.get(user=userInstance).first_name
-            print("Admin first name: " + str(first_name)) #DEBUG
             context['title'] = 'Home'
             context['first_name'] = first_name
             context['isAdmin'] = isAdmin

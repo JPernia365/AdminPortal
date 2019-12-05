@@ -1,0 +1,80 @@
+<head>
+    <title>Admin Portal-Assign Roles</title>
+</head>
+
+{% extends "Portal/homePage.html" %}
+
+{% block admin_links %}
+
+    {% if isAdmin %}
+
+    <li class="nav-item"></li>
+        <a class="nav-link" href="{% url 'new-admins-list' %}">Assign Roles</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'redirect-success' %}">Manage User Account</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'redirect-success' %}"> Help Desk</a>
+    </li>
+
+    {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+<div id="backgroundimg1">
+
+  <div class="row" id="table-container">
+    
+    <table class="table">
+
+      <h2 style="margin-left: 10px;">New Admins:</h2>
+
+      <hr>
+
+      <thead>
+
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Admin First Name</th>
+          <th scope="col">Admin Last Name</th>
+          <th scope="col">Admin Email</th>
+          <th scope="col">Desired Role</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        {% for newAdmin in new_admins_list %}
+
+        <tr>
+          <th scope="row"> <a href="{{ newAdmin.get_absolute_url }}" class="rowlink"> {{forloop.counter}} </a> </th>
+          <td>{{ newAdmin.first_name }}</td>
+          <td>{{ newAdmin.last_name }}</td>
+          <td>{{ newAdmin.email }}</td>
+          <td>{{ newAdmin.role }}</td>
+        </tr>
+
+        {% empty %}
+
+        <tr>
+            <td></td>
+            <th scope="row">No New Admins</th>
+        </tr>
+
+        {% endfor %}
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>
+
+{% endblock %}
