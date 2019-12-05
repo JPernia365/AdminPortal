@@ -41,6 +41,7 @@ class NewAdminsListView(ListView):
         userInstance = User.objects.get(username=self.request.user.username)
         isAdmin = userInstance.administrator.is_admin
         context['isAdmin'] = isAdmin
+        context['adminRole'] = userInstance.administrator.role
         return context
 
 
@@ -73,9 +74,4 @@ def adminDetailView(request, pk):
     else:
         return redirect('Home')
 
-    # context = {
-    #     'form':     form,
-    #     'isAdmin':  isAdmin,
-    #     'admin':    admin,
-    # }
     return render(request, 'Portal/admin-detail.html', context)

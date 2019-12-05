@@ -44,10 +44,65 @@ html, body {
   .window {
     height: 100%;
     width: 100% !important;
-    /* overflow-y: scroll !important;  */
   }
   
-  #backgroundimg1 {
+  .backgroundimg.GLOBAL {
+    background-image: url("background.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: top; 
+    background-clip: border-box;
+    background-repeat: no-repeat;
+    padding-top: 18vh;
+    height: 100vh;
+    width: 100% !important;
+    overflow-y: scroll !important; 
+    text-align: center;
+  }
+
+  .backgroundimg.FINANCE {
+    background-image: url("finance.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: top; 
+    background-clip: border-box;
+    background-repeat: no-repeat;
+    padding-top: 18vh;
+    height: 100vh;
+    width: 100% !important;
+    overflow-y: scroll !important; 
+    text-align: center;
+  }
+
+  .backgroundimg.SALES {
+    background-image: url("background.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: top; 
+    background-clip: border-box;
+    background-repeat: no-repeat;
+    padding-top: 18vh;
+    height: 100vh;
+    width: 100% !important;
+    overflow-y: scroll !important; 
+    text-align: center;
+  }
+
+  .backgroundimg.HR {
+    background-image: url("background.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: top; 
+    background-clip: border-box;
+    background-repeat: no-repeat;
+    padding-top: 18vh;
+    height: 100vh;
+    width: 100% !important;
+    overflow-y: scroll !important; 
+    text-align: center;
+  }
+
+  .backgroundimg.ENGINEERING {
     background-image: url("background.png");
     background-size: cover;
     background-attachment: fixed;
@@ -84,15 +139,23 @@ html, body {
   }
 
   .display-5 {
-    font-family: "Gill Sans", sans-serif;
+    /* font-family: "Gill Sans", sans-serif; */
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,
+    "Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji"
+    ,"Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
     color: #ddd !important;
     font-weight: 400 !important;
+    text-shadow: 0px 5px 14px black !important;
   }
   
   .display-4 {
-    font-family: "Gill Sans", sans-serif;
+    /* font-family: "Gill Sans", sans-serif; */
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,
+    "Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji"
+    ,"Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
     color: #ddd !important;
     font-weight: 500 !important;
+    text-shadow: 0px 5px 14px black !important;
   }
 
   .display-3 {

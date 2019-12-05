@@ -24,6 +24,7 @@ def homePage(request):
             context['title'] = 'Home'
             context['first_name'] = first_name
             context['isAdmin'] = isAdmin
+            context['adminRole'] = userInstance.administrator.role
             context['new_users'] = new_users
             return render(request, 'Portal/homePage.html', context)
         else :
