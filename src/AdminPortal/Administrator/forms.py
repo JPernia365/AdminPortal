@@ -16,18 +16,16 @@ class signUpForm(UserCreationForm):
             'first_name',
             'last_name',
             'email',
-            'role',
             'username',
             'password1',
             'password2',
+            'role',
         )
 
 class AdminReviewForm(ModelForm):
-    # first_name = forms.CharField(max_length=50)
-    # last_name = forms.CharField(max_length=50)
-    # username = forms.CharField(max_length=256)
-    # email = forms.EmailField(max_length=256)
-    # role = forms.CharField(max_length=11, widget=forms.Select(choices=ROLES))
+
+    role = forms.CharField(max_length=11, widget=forms.Select(choices=ROLES))
+
     class Meta:
-        model = Administrator
-        fields = ['first_name', 'last_name', 'email', 'role']
+        model = User
+        fields = ['role',]

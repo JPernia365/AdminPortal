@@ -135,19 +135,17 @@ html, body {
     border-radius: 30px;
   }
   
-  #update-btn-container .form-group .btn{
+  #update-btn-container .form-group .btn {
+    background-color:rgba(255, 255, 255, 0.7);
     margin: 0 auto;
     width: 120px !important;
-    height: 60px !important;
+    height: 50px !important;
     border-radius: 30px !important;
-    box-shadow: 0px 15px 15px #333 !important;
   }
 
-  #update-btn-container .form-group .btn{
-    margin: 0 auto;
-    width: 120px !important;
-    height: 60px !important;
-    border-radius: 30px !important;
+  #update-btn-container .form-group .btn:hover {
+    color: #000;
+    background-color: rgba(66, 219, 240, 0.849);
     box-shadow: 0px 15px 15px #333 !important;
   }
 
@@ -182,6 +180,7 @@ html, body {
   }
   #form-pane {
     width: 100% !important;
+    height: 100% !important;
   }
 
   #personal-info-pane {
@@ -196,7 +195,7 @@ html, body {
     float: left !important;
     width: 50% !important;
     top: 20px;
-    height: 20vh;
+    height: 25vh;
     margin: 10px 0 0 0;
   }
 
@@ -207,5 +206,10 @@ html, body {
   }
 
   #role-box .form-group {
+    text-align: center !important;
     height: 100% !important;
+    margin: 0 auto !important;
+    width: 20vw !important;
+    position: relative !important;
+    top: -30px !important;
   }

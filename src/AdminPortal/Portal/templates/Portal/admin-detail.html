@@ -32,26 +32,6 @@
     <h1 class="display-5">Please review {{ admin.first_name }}'s Admin request</h3>
 
     <div class="row" id="admin-info-container">
-        <div class="class="col" style="float:left !important; width: 100% !important;">
-            <form method="post" id="form-pane">
-                {% csrf_token %}
-                {{ form|crispy }}
-                <div class="row" id="update-btn-container">
-                    <div class="form-group" style="margin: 0 auto; background-color: transparent; width: 120px !important; height: 60px !important;">
-                        <button type="submit" class="btn btn-outline-info">Update</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-{% endblock %}
-
-<!-- <div id="backgroundimg1">
-
-    <h1 class="display-5">Please review {{ admin.first_name }}'s Admin request</h3>
-
-    <div class="row" id="admin-info-container">
         <form method="POST" id="form-pane">
             {% csrf_token %}
 
@@ -73,7 +53,29 @@
                     <button type="submit" class="btn btn-outline-info">Update</button>
                 </div>
             </div>
-
         </form>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+<!-- <div id="backgroundimg1">
+
+    <h1 class="display-5">Please review {{ admin.first_name }}'s Admin request</h3>
+
+    <div class="row" id="admin-info-container">
+        <div class="class="col" style="float:left !important; width: 100% !important;">
+            <form method="post" id="form-pane">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <div class="row" id="update-btn-container">
+                    <div class="form-group" style="margin: 0 auto; background-color: transparent; width: 120px !important; height: 60px !important;">
+                        <button type="submit" class="btn btn-outline-info">Update</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </div> -->

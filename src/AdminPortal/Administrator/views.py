@@ -47,18 +47,35 @@ class NewAdminsListView(ListView):
 def adminDetailView(request, pk):
     context = {}
     admin = get_object_or_404(Administrator, admin_id=pk)
-    context['admin'] = admin
     userInstance = User.objects.get(username=request.user.username)
     isAdmin = userInstance.administrator.is_admin
-    context['isAdmin'] = isAdmin
     if isAdmin:
-        form = AdminReviewForm(request.POST, instance=admin)
-        if form.is_valid():
-            admin.role = form.cleaned_data.get('role')
-            admin.is_admin = True
-            admin.save()
-            Administrator.refresh_from_db()
-            context['form'] = form
-            return render(request, 'Portal/admin-detail.html', context)
+        if request.method == 'POST':
+            form = AdminReviewForm(request.POST, instance=admin)
+            if form.is_valid():
+                admin.role = form.cleaned_data.get('role')
+                admin.is_admin = True
+                admin.save()
+                Administrator.refresh_from_db(self=admin)
+                context = {
+                    'isAdmin': isAdmin,
+                    'admin': admin,
+                    'form': form,
+                }
+                return redirect('new-admins-list')
+        else:
+            form = AdminReviewForm(instance=admin)
+            context = {
+                'isAdmin': isAdmin,
+                'admin': admin,
+                'form': form,
+            }
+    else:
+        return redirect('Home')
 
+    # context = {
+    #     'form':     form,
+    #     'isAdmin':  isAdmin,
+    #     'admin':    admin,
+    # }
     return render(request, 'Portal/admin-detail.html', context)
