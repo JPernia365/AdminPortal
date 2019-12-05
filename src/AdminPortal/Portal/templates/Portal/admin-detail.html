@@ -3,6 +3,7 @@
 </head>
     
 {% extends "Portal/base.html" %}
+{% load crispy_forms_tags %}
 
 {% block admin_links %}
 
@@ -28,9 +29,51 @@
 
 <div id="backgroundimg1">
 
-  <h1 class="display-5">You are now viewing {{ admin.first_name }}'s Admin request</h3>
+    <h1 class="display-5">Please review {{ admin.first_name }}'s Admin request</h3>
 
+    <div class="row" id="admin-info-container">
+        <div class="class="col" style="float:left !important; width: 100% !important;">
+            <form method="post" id="form-pane">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <div class="row" id="update-btn-container">
+                    <div class="form-group" style="margin: 0 auto; background-color: transparent; width: 120px !important; height: 60px !important;">
+                        <button type="submit" class="btn btn-outline-info">Update</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
-
 {% endblock %}
-    
+
+<!-- <div id="backgroundimg1">
+
+    <h1 class="display-5">Please review {{ admin.first_name }}'s Admin request</h3>
+
+    <div class="row" id="admin-info-container">
+        <form method="POST" id="form-pane">
+            {% csrf_token %}
+
+            <div id="personal-info-pane" class="col-lg-6">
+                <p style="font-size: 120%;"><strong>First name: </strong>{{admin.first_name}}</p>
+                <p style="font-size: 120%;"><strong>Last name: </strong>{{admin.last_name}}</p>
+            </div>
+            <div id="admin-info-pane" class="col-lg-6">
+                <p style="font-size: 120%;"><strong>Username: </strong>{{admin.user.username}}</p>
+                <p style="font-size: 120%;"><strong>Email: </strong>{{admin.email}}</p>
+            </div>
+            <div id="role-box">
+                <fieldset class="form-group">
+                    {{ form|crispy }}
+                </fieldset>
+            </div>
+            <div class="row" id="update-btn-container">
+                <div class="form-group" style="margin: 0 auto; background-color: transparent; width: 120px !important; height: 60px !important;">
+                    <button type="submit" class="btn btn-outline-info">Update</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div> -->

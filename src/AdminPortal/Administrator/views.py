@@ -4,7 +4,6 @@ from django.views.generic.list import ListView
 from django.views.generic import DetailView
 from django.contrib.auth.models import User
 from . forms import *
-from django.http.response import Http404
 
 def register(request):
 
@@ -52,4 +51,14 @@ def adminDetailView(request, pk):
     userInstance = User.objects.get(username=request.user.username)
     isAdmin = userInstance.administrator.is_admin
     context['isAdmin'] = isAdmin
+    if isAdmin:
+        form = AdminReviewForm(request.POST, instance=admin)
+        if form.is_valid():
+            admin.role = form.cleaned_data.get('role')
+            admin.is_admin = True
+            admin.save()
+            Administrator.refresh_from_db()
+            context['form'] = form
+            return render(request, 'Portal/admin-detail.html', context)
+
     return render(request, 'Portal/admin-detail.html', context)
