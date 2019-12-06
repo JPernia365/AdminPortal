@@ -7,12 +7,14 @@ html, body {
     height: 12vh !important;
     padding: 0 !important;
     margin: 0 !important;
+    position: sticky !important;
   }
   
   #top-navbar {
     background-color: #EEE !important;
     height: 12vh;
     overflow: hidden !important;
+    position: sticky !important;
   }
   
   .navbar-brand {
@@ -54,7 +56,7 @@ html, body {
     background-clip: border-box;
     background-repeat: no-repeat;
     padding-top: 18vh;
-    height: 100vh;
+    height: 100%;
     width: 100% !important;
     overflow-y: scroll !important; 
     text-align: center;
@@ -68,14 +70,14 @@ html, body {
     background-clip: border-box;
     background-repeat: no-repeat;
     padding-top: 18vh;
-    height: 100vh;
+    height: 100%;
     width: 100% !important;
     overflow-y: scroll !important; 
     text-align: center;
   }
 
   .backgroundimg.SALES {
-    background-image: url("background.png");
+    background-image: url("sales.png");
     background-size: cover;
     background-attachment: fixed;
     background-position: top; 
@@ -89,7 +91,7 @@ html, body {
   }
 
   .backgroundimg.HR {
-    background-image: url("background.png");
+    background-image: url("hr.png");
     background-size: cover;
     background-attachment: fixed;
     background-position: top; 
@@ -103,7 +105,7 @@ html, body {
   }
 
   .backgroundimg.ENGINEERING {
-    background-image: url("background.png");
+    background-image: url("Engineering.jpg");
     background-size: cover;
     background-attachment: fixed;
     background-position: top; 
@@ -129,13 +131,22 @@ html, body {
     position: relative;
     top: 40px;
   }
+
+  #admin-links-container {
+    background-color: rgba(229, 239, 241, 0.8) !important;
+    box-shadow: 0px 7px 10px #000 !important;
+    border-radius: 9px !important;
+    width: 50vw;
+    position: relative;
+    top: 40px;
+  }
   
   .jumbotron {
     background-color: transparent !important;
     display: table !important;
     margin: 0 auto !important;
     position: relative;
-    top: -10vh;
+    top: -20vh;
   }
 
   .display-5 {
@@ -666,6 +677,13 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
   padding: .5rem 1rem;
 }
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
 
 
   
